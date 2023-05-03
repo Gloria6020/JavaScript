@@ -13,9 +13,8 @@ console.log(challenge.toUpperCase());
 console.log(challenge.toLowerCase());
 
 // Cut out the first word of the string using substr() or substring()
-console.log(challenge.substr(3));
 console.log(challenge.substring(3));
-
+console.log(challenge.substr(3));
 // Slice out the phrase 'Days Of JavaScript' from '30 Days Of JavaScript'
 console.log(challenge.slice(3));
 
