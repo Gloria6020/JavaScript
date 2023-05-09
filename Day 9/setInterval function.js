@@ -1,4 +1,11 @@
 function sayHello() {
-    console.log('Hello')
+    console.log('Hello');
   }
-  setInterval(sayHello, 1000) // it prints hello in every second, 1000ms is 1s
+  
+  let intervalId = setInterval(sayHello, 1000);
+  
+  // Stop the interval after 5 seconds
+  setTimeout(() => {
+    clearInterval(intervalId);
+  }, 5000);
+  
