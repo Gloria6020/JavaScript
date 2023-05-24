@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meal Generator</title>
+  <style>
+    .meal-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meal-box {
+      padding: 10px;
+      background-color: lightgray;
+    }
+
+    .lunch {
+      background-color: yellow;
+    }
+
+    .dinner {
+      background-color: orange;
+    }
+
+    .breakfast {
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meal Generator</h1>
+  <div>
+    <label for="meal-input">Meal Times:</label>
+    <input type="text" id="meal-input" placeholder="Enter meal times">
+    <button id="generate-btn">Generate</button>
+  </div>
+  <div class="meal-container" id="meal-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

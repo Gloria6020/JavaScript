@@ -1,0 +1,31 @@
+#year {
+    font-size: 24px;
+  }
+  
+  #date-time {
+    font-size: 18px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+    margin-bottom: 5px;
+    color: #ffffff;
+  }
+  
+  .completed {
+    background-color: green;
+  }
+  
+  .ongoing {
+    background-color: yellow;
+  }
+  
+  .coming {
+    background-color: red;
+  }
+  

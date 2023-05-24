@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weight Calculator</title>
+    <style>
+        .planet-image {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        // Planet data (gravity relative to Earth's gravity)
+        var planetData = {
+            "Mercury": { gravity: 0.378, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fsolar-system-planets&psig=AOvVaw2h8zAtqF0zYJw81rLaj0nR&ust=1685053252896000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIjxy97-jv8CFQAAAAAdAAAAABAE" },
+            "Venus": { gravity: 0.907, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fsolar-system-planets&psig=AOvVaw2h8zAtqF0zYJw81rLaj0nR&ust=1685053252896000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIjxy97-jv8CFQAAAAAdAAAAABAE" },
+            "Earth": { gravity: 1.0, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fsolar-system-planets&psig=AOvVaw2h8zAtqF0zYJw81rLaj0nR&ust=1685053252896000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIjxy97-jv8CFQAAAAAdAAAAABAE" },
+            "Mars": { gravity: 0.377, image: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+            "Jupiter": { gravity: 2.36, image: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+            "Saturn": { gravity: 0.916, image: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+            "Uranus": { gravity: 0.889, image: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+            "Neptune": { gravity: 1.12, image: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+            "Pluto": { gravity: 0.071, image: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" }
+        };
+
+        function calculateWeight() {
+            var weight = parseFloat(document.getElementById("weight").value);
+            var planet = document.getElementById("planet").value;
+
+            if (planet in planetData) {
+                var gravity = planetData[planet].gravity;
+                var weightOnPlanet = weight * gravity;
+
+                document.getElementById("result").innerHTML = "The weight of the object on " + planet + " is " + weightOnPlanet.toFixed(2) + " kilograms.";
+                document.getElementById("planet-image").src = planetData[planet].image;
+            } else {
+                document.getElementById("result").innerHTML = "Planet not found in the data.";
+                document.getElementById("planet-image").src = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Weight Calculator</h1>
+    <label for="weight">Weight on Earth (in kilograms):</label>
+    <input type="text" id="weight">
+    <br>
+    <label for="planet">Select a planet:</label>
+    <select id="planet">
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+        <option value="Earth" selected>Earth</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn</option>
+        <option value="Uranus">Uranus</option>
+        <option value="Neptune">Neptune</option>
+        <option value="Pluto">Pluto</option>
+    </select>
+    <br>
+    <button onclick="calculateWeight()">Calculate</button>
+    <br>
+    <p id="result"></p>
+    <img id="planet-image" class="planet-image" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fsolar-system-planets&psig=AOvVaw2h8zAtqF0zYJw81rLaj0nR&ust=1685053252896000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIjxy97-jv8CFQAAAAAdAAAAABAE">
+</body>
+</html>
