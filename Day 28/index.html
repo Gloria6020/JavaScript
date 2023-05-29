@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    #header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #leaderboard-container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .leaderboard-entry {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .leaderboard-entry span {
+      flex-basis: 25%;
+    }
+
+    .leaderboard-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .add-player-form {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .add-player-form input {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .add-player-form button {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>Leaderboard</h1>
+  </div>
+
+  <div id="leaderboard-container">
+    <div id="leaderboard"></div>
+
+    <form id="add-player-form" class="add-player-form">
+      <input type="text" id="first-name" placeholder="First Name" required>
+      <input type="text" id="last-name" placeholder="Last Name" required>
+      <input type="text" id="country" placeholder="Country" required>
+      <input type="number" id="score" placeholder="Score" required>
+      <button type="submit">Add Player</button>
+    </form>
+  </div>
+
+  <script>
+    var leaderboard = document.getElementById('leaderboard');
+    var addPlayerForm = document.getElementById('add-player-form');
+
+    // Array to store the leaderboard entries
+    var leaderboardData = [];
+
+    // Function to render the leaderboard
+    function renderLeaderboard() {
+      leaderboard.innerHTML = '';
+
+      leaderboardData.forEach(function(entry) {
+        var entryElement = document.createElement('div');
+        entryElement.className = 'leaderboard-entry';
+
+        var nameElement = document.createElement('span');
+        nameElement.textContent = entry.firstName + ' ' + entry.lastName;
+        entryElement.appendChild(nameElement);
+
+        var countryElement = document.createElement('span');
+        countryElement.textContent = entry.country;
+        entryElement.appendChild(countryElement);
+
+        var scoreElement = document.createElement('span');
+        scoreElement.textContent = entry.score;
+        entryElement.appendChild(scoreElement);
+
+        leaderboard.appendChild(entryElement);
+      });
+    }
+
+    // Function to add a player to the leaderboard
+    function addPlayer(event) {
+      event.preventDefault();
+
+      var firstNameInput = document.getElementById('first-name');
+      var lastNameInput = document.getElementById('last-name');
+      var countryInput = document.getElementById('country');
+      var scoreInput = document.getElementById('score');
+
+      var firstName = firstNameInput.value.trim();
+      var lastName = lastNameInput.value.trim();
+      var country = countryInput.value.trim();
+      var score = parseInt(scoreInput.value);
+
+      if (firstName && lastName && country && !isNaN(score)) {
+        var player = {
+          firstName: firstName,
+          lastName: lastName,
+          country: country,
+          score: score
+        };
+
+        leaderboardData.push(player);
+        renderLeaderboard();
+
+        // Reset form inputs
+        firstNameInput.value = '';
+        lastNameInput.value = '';
+        countryInput.value = '';
+        scoreInput.value = '';
+      }
+    }
+
+    // Add event listener to the add player form
+    addPlayerForm.addEventListener('submit', addPlayer);
+  </script>
+</body>
+</html>

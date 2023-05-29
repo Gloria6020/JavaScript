@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animating Characters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      animation: background-blink 4s infinite;
+    }
+
+    @keyframes background-blink {
+      0% { background-color: red; }
+      50% { background-color: green; }
+      100% { background-color: red; }
+    }
+
+    .character-container {
+      display: inline-block;
+      padding: 5px;
+      margin: 10px;
+      font-size: 48px;
+      font-weight: bold;
+      animation: blink 3s infinite alternate;
+    }
+
+    @keyframes blink {
+      0% { color: red; }
+      12.5% { color: yellow; }
+      25% { color: orange; }
+      37.5% { color: black; }
+      50% { color: blue; }
+      62.5% { color: white; }
+      75% { color: pink; }
+      87.5% { color: purple; }
+      100% { color: red; }
+    }
+  </style>
+</head>
+<body>
+  <div id="character-container"></div>
+
+  <script>
+    var characterContainer = document.getElementById('character-container');
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    for (var i = 0; i < characters.length; i++) {
+      var character = characters[i];
+
+      var characterElement = document.createElement('div');
+      characterElement.className = 'character-container';
+      characterElement.textContent = character;
+
+      characterContainer.appendChild(characterElement);
+    }
+  </script>
+</body>
+</html>
+

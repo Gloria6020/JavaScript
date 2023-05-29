@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Population and Language Visualization</title>
+  <style>
+    #population-chart, #language-chart {
+      width: 400px;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Top 10 Populated Countries</h2>
+  <div id="population-chart"></div>
+
+  <h2>Top 10 Spoken Languages</h2>
+  <div id="language-chart"></div>
+
+<script>
+  // Population data
+  var populationData = [
+    { country: "China", population: 1444216107 },
+    { country: "India", population: 1393409038 },
+    { country: "United States", population: 332915073 },
+    { country: "Indonesia", population: 276361783 },
+    { country: "Pakistan", population: 225199937 },
+    { country: "Brazil", population: 213993437 },
+    { country: "Nigeria", population: 211400708 },
+    { country: "Bangladesh", population: 166303498 },
+    { country: "Russia", population: 145912025 },
+    { country: "Mexico", population: 130262216 }
+  ];
+
+  // Language data
+  var languageData = [
+    { language: "Mandarin Chinese", speakers: 918000000 },
+    { language: "Spanish", speakers: 460000000 },
+    { language: "English", speakers: 379000000 },
+    { language: "Hindi", speakers: 341000000 },
+    { language: "Bengali", speakers: 228000000 },
+    { language: "Portuguese", speakers: 221000000 },
+    { language: "Russian", speakers: 154000000 },
+    { language: "Japanese", speakers: 128000000 },
+    { language: "Western Punjabi", speakers: 92300000 },
+    { language: "Marathi", speakers: 83100000 }
+  ];
+
+  // Function to create a bar chart
+  function createBarChart(data, elementId, xLabel, yLabel) {
+    var chartContainer = document.getElementById(elementId);
+
+    // Sort the data in descending order
+    data.sort(function(a, b) {
+      return b.value - a.value;
+    });
+
+    // Create a bar for each data point
+    for (var i = 0; i < data.length; i++) {
+      var bar = document.createElement("div");
+      bar.className = "bar";
+      bar.style.width = (data[i].value / data[0].value) * 100 + "%";
+      bar.innerHTML = data[i].label + ": " + data[i].value;
+
+      chartContainer.appendChild(bar);
+    }
+
+    // Add labels
+    var xAxisLabel = document.createElement("div");
+    xAxisLabel.className = "label";
+    xAxisLabel.innerHTML = xLabel;
+    chartContainer.appendChild(xAxisLabel);
+
+    var yAxisLabel = document.createElement("div");
+    yAxisLabel.className = "label";
+    yAxisLabel.innerHTML = yLabel;
+    chartContainer.appendChild(yAxisLabel);
+  }
+
+  // Create population chart
+  createBarChart(
+    populationData.map(function(item) {
+      return { label: item.country, value: item.population };
+    }),
+    "population-chart",
+    "Population",
+    "Country"
+  );
+
+  // Create language chart
+  createBarChart(
+    languageData.map(function(item) {
+      return { label: item.language, value: item.speakers };
+    }),
+    "language-chart",
+    "Speakers",
+    "Language",
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>World Countries List</title>
+  <style>
+    #countries-list {
+      width: 400px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    #search-bar {
+      margin-bottom: 10px;
+    }
+
+    .country {
+      padding: 5px;
+      background-image: url('data:image/jpeg;base64,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');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px;
+    }
+
+    .country:first-child {
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>World Countries List</h2>
+  <div id="countries-list">
+    <h3 id="list-title"></h3>
+    <p id="total-countries"></p>
+    <div id="letter-bar"></div>
+    <input type="text" id="search-bar" placeholder="Search by starting word">
+    <div id="countries"></div>
+  </div>
+
+  <script>
+    var countries = [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+    "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
+    "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic",
+    "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+    "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+    "Fiji", "Finland", "France",
+    "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
+    "Haiti", "Honduras", "Hungary",
+    "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
+    "Jamaica", "Japan", "Jordan",
+    "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan",
+    "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+    "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar",
+    "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway",
+    "Oman",
+    "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+    "Qatar",
+    "Romania", "Russia", "Rwanda",
+    "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain","Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+    "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+    "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
+    "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
+    "Yemen",
+    "Zambia", "Zimbabwe"
+    
+    ];
+
+    var listTitle = document.getElementById("list-title");
+    var totalCountries = document.getElementById("total-countries");
+    var letterBar = document.getElementById("letter-bar");
+    var countriesContainer = document.getElementById("countries");
+    var searchBar = document.getElementById("search-bar");
+
+    // Display the countries list
+    function displayCountries() {
+      // Clear the countries container
+      countriesContainer.innerHTML = "";
+
+      // Get the starting word from the search bar
+      var startingWord = searchBar.value.trim();
+
+      // Filter the countries based on the starting word
+      var filteredCountries = countries.filter(function(country) {
+        return country.toLowerCase().startsWith(startingWord.toLowerCase());
+      });
+
+      // Create and append country elements
+      filteredCountries.forEach(function(country) {
+        var countryElement = document.createElement("div");
+        countryElement.className = "country";
+        countryElement.textContent = country;
+        countriesContainer.appendChild(countryElement);
+      });
+
+      // Update the total number of countries
+      totalCountries.textContent = "Total Countries: " + filteredCountries.length;
+    }
+
+    // Update the letter bar
+    function updateLetterBar() {
+      // Clear the letter bar
+      letterBar.innerHTML = "";
+
+      // Create letter elements and append them to the letter bar
+      for (var i = 65; i <= 90; i++) {
+        var letter = String.fromCharCode(i);
+        var letterElement = document.createElement("span");
+        letterElement.textContent = letter;
+        letterElement.addEventListener("click", function() {
+          searchBar.value = this.textContent;
+          displayCountries();
+        });
+        letterBar.appendChild(letterElement);
+      }
+    }
+
+    // Add event listener to the search bar
+    searchBar.addEventListener("input", displayCountries);
+
+    // Initialize the list
+    function initializeList() {
+      listTitle.textContent = "World Countries List";
+      updateLetterBar();
+      displayCountries();
+    }
+
+    // Call initializeList to start the application
+    initializeList();
+  </script>
+</body>
+</html>

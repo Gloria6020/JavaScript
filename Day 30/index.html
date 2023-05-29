@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>World countries data</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      animation: blink-animation 5s infinite;
+    }
+
+    @keyframes blink-animation {
+      0%, 50% { background-color: #f4f4f4; }
+      25%, 75% { background-color: #fff; }
+    }
+
+    .page {
+      display: none;
+      text-align: center;
+      padding: 50px;
+      font-size: 24px;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    .flag {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .country-details {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page visible" id="page1">
+    <h1> Countries Flags</h1>
+    <div class="country">
+      <img class="flag" src="path/to/flag1.png" alt="Country 1 Flag">
+      <div class="country-details">
+        <h3>Country 1</h3>
+        <p>Country 1 Details</p>
+      </div>
+    </div>
+    <div class="country">
+      <img class="flag" src="path/to/flag2.png" alt="Country 2 Flag">
+      <div class="country-details">
+        <h3>Country 2</h3>
+        <p>Country 2 Details</p>
+      </div>
+    </div>
+    < { language: "Mandarin Chinese", speakers: 918000000 },
+    { language: "Spanish", speakers: 460000000 },
+    { language: "English", speakers: 379000000 },
+    { language: "Hindi", speakers: 341000000 },
+    { language: "Bengali", speakers: 228000000 },
+    { language: "Portuguese", speakers: 221000000 },
+    { language: "Russian", speakers: 154000000 },
+    { language: "Japanese", speakers: 128000000 },
+    { language: "Western Punjabi", speakers: 92300000 },
+    { language: "Marathi", speakers: 83100000 }>
+  </div>
+
+  <div class="page" id="page2">
+    <h1>Page 2: Top 10 Countries</h1>
+    <div class="country">
+      <h3>Country 1</h3>
+      <p>Population: xxx</p>
+      <p>Language: xxx</p>
+    </div>
+    <div class="country">
+      <h3>Country 2</h3>
+      <p>Population: xxx</p>
+      <p>Language: xxx</p>
+    </div>
+    < { country: "China", population: 1444216107 },
+    { country: "India", population: 1393409038 },
+    { country: "United States", population: 332915073 },
+    { country: "Indonesia", population: 276361783 },
+    { country: "Pakistan", population: 225199937 },
+    { country: "Brazil", population: 213993437 },
+    { country: "Nigeria", population: 211400708 },
+    { country: "Bangladesh", population: 166303498 },
+    { country: "Russia", population: 145912025 },
+    { country: "Mexico", population: 130262216 }>
+  </div>
+
+  <script>
+    var currentPage = 1;
+    var pages = document.getElementsByClassName('page');
+
+    setInterval(function() {
+      pages[currentPage - 1].classList.remove('visible');
+      currentPage = currentPage === pages.length ? 1 : currentPage + 1;
+      pages[currentPage - 1].classList.add('visible');
+    }, 5000);
+  </script>
+</body>
+</html>
